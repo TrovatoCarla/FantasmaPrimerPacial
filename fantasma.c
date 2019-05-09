@@ -4,6 +4,9 @@
 #include "utn.h"
 #include "fantasma.h" //cambiar por nombre entidad
 
+#define  CANT_DIG_MIN   1
+#define  CANT_DIG_MAX   10
+
 
 /** \brief  To indicate that all position in the array are empty,
 *          this function put the flag (isEmpty) in TRUE in all
@@ -164,8 +167,8 @@ int fantasma_alta(Fantasma array[], int size, int* contadorID)                  
             (*contadorID)++;
             array[posicion].idUnico=*contadorID;                                                       //campo ID
             array[posicion].isEmpty=0;
-            utn_getUnsignedInt("\ngetUnsignedInt: ","\nError",1,sizeof(int),1,10,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
-            utn_getFloat("\ngetFloat: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
+            utn_getUnsignedInt("\ngetUnsignedInt: ","\nError",CANT_DIG_MIN,CANT_DIG_MAX,1,10,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
+            utn_getFloat("\ngetFloat: ","\nError",CANT_DIG_MIN,CANT_DIG_MAX,0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
             utn_getName("\ngetName: ","\nError",1,TEXT_SIZE,1,array[posicion].varString);                      //mensaje + cambiar campo varString
             utn_getTexto("\ngetTexto: ","\nError",1,TEXT_SIZE,1,array[posicion].varLongString);                 //mensaje + cambiar campo varLongString
             printf("\n Posicion: %d\n ID: %d\n varInt: %d\n varFloat: %f\n varString: %s\n varLongString: %s",
@@ -191,7 +194,7 @@ int fantasma_baja(Fantasma array[], int sizeArray)                              
     int id;
     if(array!=NULL && sizeArray>0)
     {
-        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
+        utn_getUnsignedInt("\nID a cancelar: ","\nError",CANT_DIG_MIN,CANT_DIG_MAX,1,sizeArray,1,&id);          //cambiar si no se busca por ID
         if(fantasma_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
         {
             printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
@@ -259,7 +262,7 @@ int fantasma_modificar(Fantasma array[], int sizeArray)                         
     char opcion;
     if(array!=NULL && sizeArray>0)
     {
-        utn_getUnsignedInt("\nID a modificar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);         //cambiar si no se busca por ID
+        utn_getUnsignedInt("\nID a modificar: ","\nError",CANT_DIG_MIN,CANT_DIG_MAX,1,sizeArray,1,&id);         //cambiar si no se busca por ID
         if(fantasma_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
         {
             printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
@@ -274,10 +277,10 @@ int fantasma_modificar(Fantasma array[], int sizeArray)                         
                 switch(opcion)
                 {
                     case 'A':
-                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
+                        utn_getUnsignedInt("\n: ","\nError",CANT_DIG_MIN,CANT_DIG_MAX,1,1,1,&array[posicion].varInt);           //mensaje + cambiar campo varInt
                         break;
                     case 'B':
-                        utn_getFloat("\n: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
+                        utn_getFloat("\n: ","\nError",CANT_DIG_MIN,CANT_DIG_MAX,0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
                         break;
                     case 'C':
                         utn_getName("\n: ","\nError",1,TEXT_SIZE,1,array[posicion].varString);                      //mensaje + cambiar campo varString

@@ -125,3 +125,27 @@
 	"utn.h"
 	"fantasma.h"
 
+1557364490 source:/home/profesor/Descargas/Fantasma_v4/informes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+
+1557276040 /home/profesor/Descargas/Fantasma_v4/utn.h
+
+1557409455 /home/profesor/Descargas/Fantasma_v4/fantasma.h
+
+1557409735 source:/home/profesor/Descargas/Fantasma_v4/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+
+1557344916 source:/home/profesor/Descargas/Fantasma_v4/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
