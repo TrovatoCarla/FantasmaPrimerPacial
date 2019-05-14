@@ -39,10 +39,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="funcionesUTN.h" />
-		<Unit filename="informes.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="informes.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -53,7 +49,6 @@
 		<Unit filename="utn.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="utn.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

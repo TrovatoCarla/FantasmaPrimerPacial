@@ -9,4 +9,4 @@ int isValidNombre(char *cadena);
 int isValidApellido(char* cadena);
 int isValidTelefono(char cadena[]);
 int isValidSexo(char cadena);
-int isValidMail(char cadena[]);
+int isValidEmail(char cadena[]);

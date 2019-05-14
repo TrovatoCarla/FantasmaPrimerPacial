@@ -1,88 +1,88 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "utn.h"
 #include "fantasma.h"  //cambiar por nombre entidad
-
-
-#define QTY_ARRAY_TIPO 10
+#include "funcionesUTN.h"
+#include "misValid.h"
+#define LIMITE_ARRAY 10
 #define SORT_UP 1
 #define SORT_DOWN 0
 
 int main()
 {
     int opcion;
-    int contadorIdfantasma=0;                   //cambiar
+    int contadorIdfantasma=0;                   ///cambiar
 
-    Fantasma arrayFantasma[QTY_ARRAY_TIPO];                   //cambiar
-    fantasma_Inicializar(arrayFantasma,QTY_ARRAY_TIPO);                   //cambiar
+    Fantasma arrayFantasma[LIMITE_ARRAY];                   ///cambiar
+    fantasma_Inicializar(arrayFantasma,LIMITE_ARRAY);                   ///cambiar
 
     //*******************************************************************
     arrayFantasma[0].idUnico=0;
     arrayFantasma[0].isEmpty=0;
-    arrayFantasma[0].varInt=0;
-    arrayFantasma[0].varFloat=0;
-    strcpy(arrayFantasma[0].varLongString,"CCCCC");
-    strcpy(arrayFantasma[0].varString,"CCCCC");
+    arrayFantasma[0].auxInt=0;
+    arrayFantasma[0].auxFloat=0;
+    strcpy(arrayFantasma[0].apellido,"AAAAA");
+    strcpy(arrayFantasma[0].nombre,"AAAA");
     contadorIdfantasma++;
 
     arrayFantasma[1].idUnico=1;
     arrayFantasma[1].isEmpty=0;
-    arrayFantasma[1].varInt=0;
-    arrayFantasma[1].varFloat=0;
-    strcpy(arrayFantasma[1].varLongString,"AAAAA");
-    strcpy(arrayFantasma[1].varString,"AAAAA");
+    arrayFantasma[1].auxInt=0;
+    arrayFantasma[1].auxFloat=0;
+    strcpy(arrayFantasma[1].apellido,"BBBBB");
+    strcpy(arrayFantasma[1].nombre,"BB");
     contadorIdfantasma++;
 
-    arrayFantasma[2].idUnico=0;
+    arrayFantasma[2].idUnico=2;
     arrayFantasma[2].isEmpty=0;
-    arrayFantasma[2].varInt=0;
-    arrayFantasma[2].varFloat=20;
-    strcpy(arrayFantasma[2].varLongString,"BBBBB");
-    strcpy(arrayFantasma[2].varString,"BBBBBB");
+    arrayFantasma[2].auxInt=0;
+    arrayFantasma[2].auxFloat=20;
+    strcpy(arrayFantasma[2].apellido,"CCCCCC");
+    strcpy(arrayFantasma[2].nombre,"CCC");
     contadorIdfantasma++;
 
-    arrayFantasma[3].idUnico=0;
+    arrayFantasma[3].idUnico=3;
     arrayFantasma[3].isEmpty=0;
-    arrayFantasma[3].varInt=0;
-    arrayFantasma[3].varFloat=10;
-    strcpy(arrayFantasma[3].varLongString,"BBBBB");
-    strcpy(arrayFantasma[3].varString,"BBBBBB");
+    arrayFantasma[3].auxInt=0;
+    arrayFantasma[3].auxFloat=10;
+    strcpy(arrayFantasma[3].apellido,"DDDDDD");
+    strcpy(arrayFantasma[3].nombre,"DDD");
     contadorIdfantasma++;
 
-
+    fantasma_listar(arrayFantasma,LIMITE_ARRAY);
     //********************************************************************
 
     do
     {
-        utn_getUnsignedInt("\n\n1) Alta \n2) Modificar \n3) Baja \n4) Listar \n5) Ordenar \n6) Salir\n",                   //cambiar
-                      "\nError",1,sizeof(int),1,11,1,&opcion);
+        getInt("\n\n1) Alta \n2) Modificar \n3) Baja \n4) Listar \n5) Ordenar \n6) Salir\n",                   //cambiar
+                      "\nError",sizeof(int),1,1,&opcion);
+         system("clear");
         switch(opcion)
         {
             case 1: //Alta
-                fantasma_alta(arrayFantasma,QTY_ARRAY_TIPO,&contadorIdfantasma);                   //cambiar
+                fantasma_alta(arrayFantasma,LIMITE_ARRAY,&contadorIdfantasma);                   //cambiar
                 break;
 
-            case 2: //Modificar
-                fantasma_modificar(arrayFantasma,QTY_ARRAY_TIPO);                   //cambiar
+            case 2: ///Modificar
+                fantasma_modificar(arrayFantasma,LIMITE_ARRAY);                   //cambiar
                 break;
 
-            case 3: //Baja
-                fantasma_baja(arrayFantasma,QTY_ARRAY_TIPO);                   //cambiar
+            case 3: ///Baja
+                fantasma_baja(arrayFantasma,LIMITE_ARRAY);                   //cambiar
                 break;
 
-            case 4://Listar
-                fantasma_listar(arrayFantasma,QTY_ARRAY_TIPO);                   //cambiar
+            case 4:///Listar
+                fantasma_listar(arrayFantasma,LIMITE_ARRAY);                   //cambiar
                 break;
 
-            case 5://Ordenar
-                fantasma_ordenarPorDobleCriterio(arrayFantasma,QTY_ARRAY_TIPO,SORT_UP,SORT_DOWN);                   //cambiar
+            case 5:///Ordenar
+                fantasma_ordenarPorDobleCriterio(arrayFantasma,LIMITE_ARRAY,SORT_UP,SORT_DOWN);                   //cambiar
                 break;
 
-            case 6://Salir
+            case 6:///Salir
                 break;
             default:
-                printf("\nOpcion no valida");
+                printf("\nOpcion no valida\n");
         }
     }
     while(opcion!=6);

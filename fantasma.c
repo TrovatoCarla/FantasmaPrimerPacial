@@ -170,9 +170,12 @@ int fantasma_alta(Fantasma* array, int limite, int* contadorID)
             getName("\nIngrese nombre: ","\nNombre invalido",MAX_CARACTER,MIN_CARACTER,2,array[posicion].nombre);           //mensaje + cambiar campo varInt
             getApellido("\nIngrese apellido: ","\nApellido invalido",MAX_CARACTER,MIN_CARACTER,2,array[posicion].apellido);             //mensaje + cambiar campo varFloat
             getFloat("\nIngrese salario: ","\nSalario invalido",SALARIO_MAXIMO,SALARIO_MINIMO,2,&array[posicion].auxFloat);                      //mensaje + cambiar campo varString
-            getSexo("\nIngrese sexo F o M: ","\nSexo invalido",CANT_DIG_MAX,CANT_DIG_MIN,2,&array[posicion].auxChar);                 //mensaje + cambiar campo varLongString
-            printf("\n Posicion: %d\n ID: %d\n auxInt: %d\n auxFloat: %f\n Nombre: %s\n Apellido: %s",
-                   posicion, array[posicion].idUnico,array[posicion].auxInt,array[posicion].auxFloat,array[posicion].nombre,array[posicion].apellido);
+            getSexo("\nIngrese sexo F o M: ","\nSexo invalido",CANT_DIG_MAX,CANT_DIG_MIN,2,&array[posicion].auxChar); //mensaje + cambiar campo varLongString
+            getTelefono("\nIngrese telefono: ","Telefono invalido",MAX_CARACTER,MIN_CARACTER,2,array[posicion].telefono);
+            getMail("\nIngrese Mail: ","\nMail invalido",MAX_CARACTER,MIN_CARACTER,2,array[posicion].mail);
+            printf("\n Posicion: %d\n ID: %d\n auxInt: %d\n auxFloat: %f\n Nombre: %s\n Apellido: %s\n Telefono: %s\n Mail: %s",
+                   posicion, array[posicion].idUnico,array[posicion].auxInt,array[posicion].auxFloat,array[posicion].nombre,
+                   array[posicion].apellido,array[posicion].telefono,array[posicion].mail);
             retorno=0;
         }
     }
@@ -258,7 +261,7 @@ int fantasma_modificar(Fantasma* array, int limite)
     int retorno=-1;
     int posicion;
     int id;      ///cambiar si no se busca por ID
-    char opcion;
+    int opcion;
     if(array!=NULL && limite>0)
     {
         getInt("\nIngrese ID a modificar: ","\nError",CANT_DIG_MAX,CANT_DIG_MIN,2,&id); ///cambiar si no se busca por ID
@@ -270,29 +273,29 @@ int fantasma_modificar(Fantasma* array, int limite)
         {
             do
             {       ///copiar printf de alta
-                printf("\n Posicion: %d\n ID: %d\n auxInt: %d\n auxFloat: %f\n Nombre: %s\n Apellido: %s",
+                printf("\n Posicion: %d\n ID: %d\n auxInt: %d\n auxFloat: %f\n Nombre: %s\n Apellido: %s\n",
                    posicion, array[posicion].idUnico,array[posicion].auxInt,array[posicion].auxFloat,array[posicion].nombre,array[posicion].apellido);
-                getChar("\nModificar: A B C D S(salir)","\nError",'Z','A',1,&opcion);
+                getInt("\nModificar:\n 1-Int\n 2-Float\n 3-Nombre\n 4-Apelldio\n 5(salir)\n","\nError",CANT_DIG_MAX,CANT_DIG_MIN,1,&opcion);
                 switch(opcion)
                 {
-                    case 'A':
+                    case 1:
                         getInt("\nIngrese...: ","\nError",CANT_DIG_MAX,CANT_DIG_MIN,1,&array[posicion].auxInt);           //mensaje + cambiar campo varInt
                         break;
-                    case 'B':
+                    case 2:
                         getFloat("\nINgrese...: ","\nError",CANT_DIG_MAX,CANT_DIG_MIN,1,&array[posicion].auxFloat);             //mensaje + cambiar campo varFloat
                         break;
-                    case 'C':
+                    case 3:
                         getName("\nIngrese....: ","\nError",MAX_CARACTER,MIN_CARACTER,1,array[posicion].nombre);                      //mensaje + cambiar campo varString
                         break;
-                    case 'D':
+                    case 4:
                         getApellido("\nIngrese...: ","\nError",MAX_CARACTER,MIN_CARACTER,1,array[posicion].apellido);             //mensaje + cambiar campo varLongString
                         break;
-                    case 'S':
+                    case 5:
                         break;
                     default:
                         printf("\nOpcion no valida");
                 }
-            }while(opcion!='S');
+            }while(opcion!=5);
             retorno=0;
         }
     }

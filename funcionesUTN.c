@@ -73,6 +73,7 @@ int getChar(char *mensaje,char *mensajeError,char maximo,char minimo,int reinten
            do
            {
                printf("%s",mensaje);
+               __fpurge(stdin);
                scanf("%c",&buffer);
                if(isValidChar(buffer,maximo))
                {
@@ -158,37 +159,54 @@ int getApellido(char* mensaje,char* mensajeError,char maximo,char minimo,int rei
 
 int getSexo(char* mensaje,char* mensajeError,char maximo,char minimo,int reintentos,char* resultado)
 {
-    char bufferSexo;
     int retorno=-1;
+    char buffer;
 
-     if(mensaje!=NULL && mensajeError!=NULL && maximo>minimo && reintentos>0 && resultado!=NULL)
-     {
-        if(getString(mensaje,mensajeError,maximo,minimo,reintentos,&bufferSexo)==0)
+    do
+    {
+        __fpurge(stdin);
+        printf("%s", mensaje);
+        scanf("%c", &buffer);
+        if(isValidSexo(buffer))
         {
-            if(isValidSexo(bufferSexo)==TRUE)
-            {
-                *resultado=bufferSexo;
-                retorno=0;
-            }
+            *resultado = buffer;
+            retorno = 0;
+            break;
         }
-     }
+        else
+        {
+            printf("%s", mensajeError);
+        }
+        }while(reintentos--);
+
     return retorno;
 }
-int getTelefono(char* mensaje,char* mensajeError,char maximo,char minimo,int reintentos,char* resultado)
+
+int getTelefono(char* mensaje,char* mensajeError,char maximo,char minimo,int reintentos,char* resultado)///OK!!
 {
     char bufferTelefono[CARACTER];
     int retorno=-1;
 
       if(mensaje!=NULL && mensajeError!=NULL && maximo>minimo && reintentos>0 && resultado!=NULL)
       {
-        if(getString(mensaje,mensajeError,maximo,minimo,reintentos,bufferTelefono)==0)
-        {
-            if(isValidTelefono(bufferTelefono)==TRUE)
+         do
+        {   __fpurge(stdin);
+            if(!getString(mensaje,mensajeError,maximo,minimo,reintentos,bufferTelefono)) ///==0 sin errores !0
             {
-                strncpy(resultado,bufferTelefono,CARACTER);
-                retorno=0;
+                if(isValidTelefono(bufferTelefono)==1)
+                {
+                    strncpy(resultado,bufferTelefono,maximo);
+                    retorno=0;
+                    break;
+                }
+                else
+                {
+                    printf("%s",mensajeError);
+                    reintentos--;
+                }
             }
         }
+        while(reintentos>=0);
       }
     return retorno;
 }
@@ -200,15 +218,25 @@ int getMail(char* mensaje,char* mensajeError,char maximo,char minimo,int reinten
 
        if(mensaje!=NULL && mensajeError!=NULL && maximo>minimo && reintentos>0 && resultado!=NULL)
        {
-            if(getString(mensaje,mensajeError,maximo,minimo,reintentos,bufferMail)==0)
+        do
+        {
+            __fpurge(stdin);
+            if(!getString(mensaje,mensajeError,maximo,minimo,reintentos,bufferMail)) ///==0 sin errores !0
             {
-                if(isValidMail(bufferMail)==TRUE)
+                if(isValidEmail(bufferMail)==1)
                 {
-                    strncpy(resultado,bufferMail,CARACTER);
+                    strncpy(resultado,bufferMail,maximo);
                     retorno=0;
+                    break;
+                }
+                else
+                {
+                    printf("%s 2",mensajeError);
+                    reintentos--;
                 }
             }
-       }
+        }
+        while(reintentos>=0);
+    }
     return retorno;
 }
-

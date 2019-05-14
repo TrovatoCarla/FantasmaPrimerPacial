@@ -110,44 +110,51 @@ int isValidApellido(char* cadena)
     return retorno;
 }
 
-int isValidTelefono(char cadena[])
+int isValidTelefono(char cadena[])   ///OK!!!
 {
-    int i=0;
-    int retorno=-1;
-    int contadorGuiones=0;
 
-    while(cadena[i]!= '\0')
+    int retorno=1;
+    int i;
+    for(i=0;cadena[i]!='\0';i++)
     {
-        if((cadena[i]!=' ') && (cadena[i]<'0' || cadena[i]>'9') && (cadena[i]<'a' || cadena[i]>'z'))
+        if((cadena[i]<'0' || cadena[i]>'9') && (cadena[i]!='-' && cadena[i]!=' '))
         {
             retorno=0;
+            break;
         }
-        if(cadena[i]=='-')
-        {
-            contadorGuiones++;
-        }
-     i++;
     }
-       if(contadorGuiones==1)
-        {
-            retorno=1;
-        }
-        return retorno;
+    return retorno;
 }
 
 int isValidSexo(char cadena)
 {
     int retorno=TRUE;
 
-    if(cadena!='f' || cadena!='F' || cadena!='m' || cadena!='M')
+    if((cadena!='f') && (cadena!='F') && (cadena!='m') && (cadena!='M'))
     {
         retorno=FALSE;
     }
     return retorno;
 }
 
-int isValidMail(char cadena[])
+int isValidEmail(char cadena[])
 {
+    int retorno=1;  /// para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int i;
+    for(i=0;cadena[i]!='\0';i++)
+    {
+        if((cadena[i]<'-' && cadena[i]!='+') || (cadena[i]>'9' && cadena[i]<'@') ||
+           (cadena[i]>'Z' && cadena[i]!='_' && cadena[i]<'a')|| cadena[i]>'z')
+        {
+            retorno=0;
+            break;
+        }
+    }
+    return retorno;
+}
+
+
+/*
     int retorno=TRUE;
     int i;
     int contador=0;
@@ -165,6 +172,5 @@ int isValidMail(char cadena[])
                     }
             }
         }
-    }
-    return retorno;
-}
+    }*/
+

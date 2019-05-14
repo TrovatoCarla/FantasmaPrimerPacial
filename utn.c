@@ -25,7 +25,7 @@ utn_getFecha
 *
 ***************************/
 
-int getString(char* msg, char* msgError, int min, int max, int* reintentos, char* resultado)
+/*int getString(char* msg, char* msgError, int min, int max, int* reintentos, char* resultado)
 {
     int retorno=-1;
     char bufferStr[max+10];
@@ -34,12 +34,12 @@ int getString(char* msg, char* msgError, int min, int max, int* reintentos, char
     {
         do
         {
-            printf("%s",msg);   //no poner salto de linea, se va a pasar en el mensaje por valor
-            //fflush(stdin);
+            printf("%s",msg);   ///no poner salto de linea, se va a pasar en el mensaje por valor
+            ///fflush(stdin);
             fgets(bufferStr,sizeof(bufferStr),stdin);
             bufferStr[strlen(bufferStr)-1]='\0';
 
-            if(strlen(bufferStr)>=min && strlen(bufferStr)<max)    // tamaño (max) =cantidad de elementos (strlen) + 1(\0)
+            if(strlen(bufferStr)>=min && strlen(bufferStr)<max)    /// tamaño (max) =cantidad de elementos (strlen) + 1(\0)
             {
                 strncpy(resultado,bufferStr,max);
                 retorno=0;
@@ -51,7 +51,7 @@ int getString(char* msg, char* msgError, int min, int max, int* reintentos, char
         while((*reintentos)>=0);
     }
     return retorno;
-}
+}*/
 //------------------------------
 int utn_getName(char* msg, char* msgError, int min, int max, int reintentos, char* resultado)
 {
@@ -412,7 +412,7 @@ int utn_getEmail(char* msg, char* msgError, int minSize, int maxSize, int reinte
     {
         do
         {
-            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) //==0 sin errores !0
+            if(!getString(msg,msgError,minSize,maxSize,&reintentos,bufferStr)) ///==0 sin errores !0
             {
                 if(isValidEmail(bufferStr)==1)
                 {
@@ -431,7 +431,7 @@ int utn_getEmail(char* msg, char* msgError, int minSize, int maxSize, int reinte
     }
     return retorno;
 }
-
+/*
 int isValidEmail(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
@@ -446,7 +446,7 @@ int isValidEmail(char* stringRecibido)
         }
     }
     return retorno;
-}
+}*/
 
 //*************************************************************
 int utn_getTexto(char* msg, char* msgError, int minSize, int maxSize, int reintentos, char* input)
@@ -569,11 +569,11 @@ int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, cha
     }
     return retorno;
 }
-
+/*
 int isValidChar(char charRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     if(charRecibido<'A' || (charRecibido>'Z' && charRecibido<'a') || charRecibido>'z')
         retorno=0;
     return retorno;
-}
+}*/
