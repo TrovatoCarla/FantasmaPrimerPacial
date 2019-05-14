@@ -149,3 +149,47 @@
 	<string.h>
 	"utn.h"
 
+1557798470 source:/home/carla/esqueleto1erParcial/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+
+1557798470 /home/carla/esqueleto1erParcial/utn.h
+
+1557807160 /home/carla/esqueleto1erParcial/fantasma.h
+
+1557798470 source:/home/carla/esqueleto1erParcial/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1557807313 source:/home/carla/esqueleto1erParcial/fantasma.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"funcionesUTN.h"
+	"misValid.h"
+	"fantasma.h"
+
+1557803627 source:/home/carla/esqueleto1erParcial/informes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"fantasma.h"
+
+1557775092 /home/carla/esqueleto1erParcial/funcionesUTN.h
+
+1557768899 /home/carla/esqueleto1erParcial/misValid.h
+
+1557775079 source:/home/carla/esqueleto1erParcial/funcionesUTN.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio_ext.h>
+	"funcionesUTN.h"
+	"misValid.h"
+

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utn.h"
-#include "fantasma.h"  //cambiar por nombre entidad
+#include "fantasma.h"  ///cambiar por nombre entidad
 
 /** \brief Busca un valor y lista los elementos de dos arrays vinculados
 * \param arrayA Fantasma Array de Fantasma
@@ -30,12 +30,12 @@ int Informes_listarPorCriterio(Fantasma arrayA[], Fantasma arrayB[], int sizeI, 
                 printf("\nID A: %d\nID B: %d",
                        arrayA[i].idUnico,arrayB[j].idUnico);
             }
-
-        }
-        retorno=0;
+         retorno=0;
     }
-    return retorno;
-}
+     return retorno;
+    }
+
+
 
 /** \brief Busca un valor repetido y lo lista una sola vez, junto con otros elementos de dos arrays vinculados
 * \param arrayA Fantasma Array de Fantasma
@@ -60,7 +60,7 @@ int Informes_listarCriterioContadorAcumulado(Fantasma arrayA[], Fantasma arrayB[
     {
         for(i=0;i<sizeI;i++)
         {
-            fantasma_buscarString(arrayA,i,arrayA[i].varString,&auxPosicion); ///cambiar nombreFuncion y campo      va a analizar hasta <i
+            fantasma_buscarString(arrayA,i,arrayA[i].varString,&auxPosicion); ///cambiar nombreFuncion y campo   va a analizar hasta <i
             if(arrayA[i].isEmpty==1 && auxPosicion!=-1)
                 continue;        ///Si ese valor ya aparecio > continue
             else
@@ -135,7 +135,7 @@ int Informes_maxContadorAcumulado(Fantasma arrayA[], Fantasma arrayB[], int size
                                 arrayA[k].idUnico,arrayB[j].idUnico);
                     }
                 }
-                //Guardo los max acumulado y contador
+                ///Guardo los max acumulado y contador
                 if(acumulador>maxAcumulado)
                 {
                     maxAcumulado=acumulador;
