@@ -193,7 +193,7 @@
 	"funcionesUTN.h"
 	"misValid.h"
 
-1557848617 source:/home/carla/FantasmaPrimerPacial/fantasma.c
+1557856855 source:/home/carla/FantasmaPrimerPacial/fantasma.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -201,13 +201,13 @@
 	"misValid.h"
 	"fantasma.h"
 
-1557843573 /home/carla/FantasmaPrimerPacial/funcionesUTN.h
+1557855264 /home/carla/FantasmaPrimerPacial/funcionesUTN.h
 
-1557848967 /home/carla/FantasmaPrimerPacial/misValid.h
+1557852938 /home/carla/FantasmaPrimerPacial/misValid.h
 
-1557848582 /home/carla/FantasmaPrimerPacial/fantasma.h
+1557856060 /home/carla/FantasmaPrimerPacial/fantasma.h
 
-1557849134 source:/home/carla/FantasmaPrimerPacial/funcionesUTN.c
+1557855830 source:/home/carla/FantasmaPrimerPacial/funcionesUTN.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -215,14 +215,14 @@
 	"funcionesUTN.h"
 	"misValid.h"
 
-1557848967 source:/home/carla/FantasmaPrimerPacial/misValid.c
+1557853662 source:/home/carla/FantasmaPrimerPacial/misValid.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"funcionesUTN.h"
 	"misValid.h"
 
-1557849044 source:/home/carla/FantasmaPrimerPacial/utn.c
+1557852958 source:/home/carla/FantasmaPrimerPacial/utn.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -230,7 +230,7 @@
 
 1557843573 /home/carla/FantasmaPrimerPacial/utn.h
 
-1557844917 source:/home/carla/FantasmaPrimerPacial/main.c
+1557855655 source:/home/carla/FantasmaPrimerPacial/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>

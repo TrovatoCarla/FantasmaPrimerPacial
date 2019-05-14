@@ -169,13 +169,14 @@ int fantasma_alta(Fantasma* array, int limite, int* contadorID)
             array[posicion].isEmpty=0;
             getName("\nIngrese nombre: ","\nNombre invalido",MAX_CARACTER,MIN_CARACTER,2,array[posicion].nombre);           //mensaje + cambiar campo varInt
             getApellido("\nIngrese apellido: ","\nApellido invalido",MAX_CARACTER,MIN_CARACTER,2,array[posicion].apellido);             //mensaje + cambiar campo varFloat
-            getFloat("\nIngrese salario: ","\nSalario invalido",SALARIO_MAXIMO,SALARIO_MINIMO,2,&array[posicion].auxFloat);                      //mensaje + cambiar campo varString
+            getFloat("\nIngrese salario: ","\nSalario invalido",MIN_CARACTER,MAX_CARACTER,SALARIO_MAXIMO,SALARIO_MINIMO,2,&array[posicion].auxFloat);                      //mensaje + cambiar campo varString
             getSexo("\nIngrese sexo F o M: ","\nSexo invalido",CANT_DIG_MAX,CANT_DIG_MIN,2,&array[posicion].auxChar); //mensaje + cambiar campo varLongString
             getTelefono("\nIngrese telefono: ","Telefono invalido",MAX_CARACTER,MIN_CARACTER,2,array[posicion].telefono);
             getMail("\nIngrese Mail: ","\nMail invalido",MAX_CARACTER,MIN_CARACTER,2,array[posicion].mail);
-            printf("\n Posicion: %d\n ID: %d\n auxInt: %d\n auxFloat: %f\n Nombre: %s\n Apellido: %s\n Telefono: %s\n Mail: %s",
+            getDNI("\nIngrese DNI: ","\nDNIinvalido",MIN_CARACTER,MAX_CARACTER,2,array[posicion].DNI);
+            printf("\n Posicion: %d\n ID: %d\n auxInt: %d\n auxFloat: %f\n Nombre: %s\n Apellido: %s\n Telefono: %s\n Mail: %s\n DNI: %s\n\n",
                    posicion, array[posicion].idUnico,array[posicion].auxInt,array[posicion].auxFloat,array[posicion].nombre,
-                   array[posicion].apellido,array[posicion].telefono,array[posicion].mail);
+                   array[posicion].apellido,array[posicion].telefono,array[posicion].mail,array[posicion].DNI);
             retorno=0;
         }
     }
@@ -282,7 +283,7 @@ int fantasma_modificar(Fantasma* array, int limite)
                         getInt("\nIngrese...: ","\nError",CANT_DIG_MAX,CANT_DIG_MIN,1,&array[posicion].auxInt);           //mensaje + cambiar campo varInt
                         break;
                     case 2:
-                        getFloat("\nINgrese...: ","\nError",CANT_DIG_MAX,CANT_DIG_MIN,1,&array[posicion].auxFloat);             //mensaje + cambiar campo varFloat
+                        getFloat("\nINgrese...: ","\nError",MIN_CARACTER,MAX_CARACTER,CANT_DIG_MAX,CANT_DIG_MIN,1,&array[posicion].auxFloat);             //mensaje + cambiar campo varFloat
                         break;
                     case 3:
                         getName("\nIngrese....: ","\nError",MAX_CARACTER,MIN_CARACTER,1,array[posicion].nombre);                      //mensaje + cambiar campo varString
@@ -372,8 +373,9 @@ int fantasma_listar(Fantasma* array, int limite)
             if(array[i].isEmpty==1)
                 continue;
             else
-                printf("\n ID: %d\n auxInt: %d\n auxFloat: %f\n nombre: %s\n apellido: %s",
-                       array[i].idUnico,array[i].auxInt,array[i].auxFloat,array[i].nombre,array[i].apellido);
+                 printf("\n Posicion: %d\n ID: %d\n auxInt: %d\n auxFloat: %f\n Nombre: %s\n Apellido: %s\n Telefono: %s\n Mail: %s\n DNI: %s\n\n",
+                   i, array[i].idUnico,array[i].auxInt,array[i].auxFloat,array[i].nombre,
+                   array[i].apellido,array[i].telefono,array[i].mail,array[i].DNI);
         }
         retorno=0;
     }

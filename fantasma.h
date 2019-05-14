@@ -12,8 +12,10 @@ typedef struct
     int auxInt;
     float auxFloat;
     char auxChar;
+    char sexo;
     char telefono[MAX_CARACTER];
     char mail[MAX_CARACTER];
+    char DNI[MAX_CARACTER];
 
 }Fantasma;
 

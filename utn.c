@@ -305,7 +305,7 @@ int utn_getDNI(char* msg, char* msgError, int minSize, int maxSize, int reintent
     }
     return retorno;
 }
-
+/*
 int isValidDNI(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
@@ -319,7 +319,7 @@ int isValidDNI(char* stringRecibido)
         }
     }
     return retorno;
-}
+}*/
 
 //***************************************
 int utn_getCUIT(char* msg, char* msgError, int reintentos, char* input)

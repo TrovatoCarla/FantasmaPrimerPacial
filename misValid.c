@@ -35,16 +35,19 @@ int isValidInt(int numero, int maximo)
     return retorno;
 }
 
-int isValidFloat(float numero, float maximo, float minimo)
+int isValidFloat(char* numero)
 {
-    int retorno=1;
-   if(numero<maximo && numero>minimo)
-   {
-    retorno=0;
-   }
-
+    int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
+    int i;
+    for(i=0;numero[i]!='\0';i++)
+    {
+        if((numero[i]<'0' || numero[i]>'9') && (numero[i]!='.'))
+        {
+            retorno=0;
+            break;
+        }
+    }
     return retorno;
-
 }
 
 int isValidChar(char aux,int maximo)
@@ -76,17 +79,14 @@ int isValidStringChar(char cadena[])
 
 int isValidNombre(char *cadena)
 {
-    int retorno= TRUE;
+    int retorno=1;
     int i;
-
-    for(i=0;cadena[i]!= '\0';i++)
+    for(i=0;cadena[i]!='\0';i++)
     {
-        if((cadena[i] <'A' || cadena[i] >'Z') && (cadena[i] <'a' || cadena[i] >'z'))
+        if(cadena[i]<'A' || (cadena[i]>'Z' && cadena[i]<'a') || cadena[i]>'z')// o ((stringRecibido[i]<'A' || (stringRecibido[i]>'Z') && (stringRecibido[i]<'a' || stringRecibido[i]>'z'))
         {
-            if(cadena[i]<= '9' && cadena[i]>='0')
-            {
-                retorno= FALSE;
-            }
+            retorno=0;
+            break;
         }
     }
     return retorno;
@@ -153,24 +153,17 @@ int isValidEmail(char cadena[])
     return retorno;
 }
 
-
-/*
-    int retorno=TRUE;
+int isValidDNI(char* cadena)
+{
+    int retorno=1;
     int i;
-    int contador=0;
-
     for(i=0;cadena[i]!='\0';i++)
     {
-        if((cadena[i]<'a'||cadena[i]>'z')&&(cadena[i]!='_')&&(cadena[i]!='-')&&(cadena[i]!='.')&&(cadena[i]<'0'||cadena[i]>'9')&&(cadena[i]!='@'))
+        if((cadena[i]<'0' || cadena[i]>'9') && (cadena[i]!='.'))
         {
-            if(cadena[i]=='@')
-            {
-                contador++;
-                    if(contador!='1')
-                    {
-                        retorno=FALSE;
-                    }
-            }
+            retorno=0;
+            break;
         }
-    }*/
-
+    }
+    return retorno;
+}

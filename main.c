@@ -11,12 +11,14 @@
 int main()
 {
     int opcion;
-    int contadorIdfantasma=0;                   ///cambiar
+    int contadorIdfantasma=0; ///cambiar
 
-    Fantasma arrayFantasma[LIMITE_ARRAY];                   ///cambiar
-    fantasma_Inicializar(arrayFantasma,LIMITE_ARRAY);                   ///cambiar
+    Fantasma arrayFantasma[LIMITE_ARRAY];         ///cambiar
+    fantasma_Inicializar(arrayFantasma,LIMITE_ARRAY);      ///cambiar
+
 
     //*******************************************************************
+    /*
     arrayFantasma[0].idUnico=0;
     arrayFantasma[0].isEmpty=0;
     arrayFantasma[0].auxInt=0;
@@ -30,7 +32,7 @@ int main()
     arrayFantasma[1].auxInt=0;
     arrayFantasma[1].auxFloat=0;
     strcpy(arrayFantasma[1].apellido,"BBBBB");
-    strcpy(arrayFantasma[1].nombre,"BB");
+    strcpy(arrayFantasma[1].nombre,"BB\n");
     contadorIdfantasma++;
 
     arrayFantasma[2].idUnico=2;
@@ -38,7 +40,7 @@ int main()
     arrayFantasma[2].auxInt=0;
     arrayFantasma[2].auxFloat=20;
     strcpy(arrayFantasma[2].apellido,"CCCCCC");
-    strcpy(arrayFantasma[2].nombre,"CCC");
+    strcpy(arrayFantasma[2].nombre,"CCC\n");
     contadorIdfantasma++;
 
     arrayFantasma[3].idUnico=3;
@@ -46,10 +48,10 @@ int main()
     arrayFantasma[3].auxInt=0;
     arrayFantasma[3].auxFloat=10;
     strcpy(arrayFantasma[3].apellido,"DDDDDD");
-    strcpy(arrayFantasma[3].nombre,"DDD");
+    strcpy(arrayFantasma[3].nombre,"DDD\n");
     contadorIdfantasma++;
 
-    fantasma_listar(arrayFantasma,LIMITE_ARRAY);
+    fantasma_listar(arrayFantasma,LIMITE_ARRAY);*/
     //********************************************************************
 
     do
@@ -59,20 +61,20 @@ int main()
          system("clear");
         switch(opcion)
         {
-            case 1: //Alta
-                fantasma_alta(arrayFantasma,LIMITE_ARRAY,&contadorIdfantasma);                   //cambiar
+            case 1: ///Alta
+                fantasma_alta(arrayFantasma,LIMITE_ARRAY,&contadorIdfantasma);    ///cambiar
                 break;
 
             case 2: ///Modificar
-                fantasma_modificar(arrayFantasma,LIMITE_ARRAY);                   //cambiar
+                fantasma_modificar(arrayFantasma,LIMITE_ARRAY);                   ///cambiar
                 break;
 
             case 3: ///Baja
-                fantasma_baja(arrayFantasma,LIMITE_ARRAY);                   //cambiar
+                fantasma_baja(arrayFantasma,LIMITE_ARRAY);                   ///cambiar
                 break;
 
             case 4:///Listar
-                fantasma_listar(arrayFantasma,LIMITE_ARRAY);                   //cambiar
+                fantasma_listar(arrayFantasma,LIMITE_ARRAY);                   ///cambiar
                 break;
 
             case 5:///Ordenar
