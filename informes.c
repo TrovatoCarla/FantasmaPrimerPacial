@@ -13,20 +13,20 @@
 * \return int Return (-1) si Error [Invalid length or NULL pointer] - (0) Ok
 *
 */
-int Informes_listarPorCriterio(Fantasma arrayA[], Fantasma arrayB[], int sizeI, int sizeJ, char* criterio)  //Valores de dos arrays. Si es valor repetido se vuelve a imprimir
+int Informes_listarPorCriterio(Fantasma arrayA[], Fantasma arrayB[], int sizeI, int sizeJ, char* criterio)///Valores de dos arrays. Si es valor repetido se vuelve a imprimir
 {
     int retorno=-1;
     int i;
     int j;
     if(arrayA!=NULL && sizeI>=0 && arrayB!=NULL && sizeJ>=0 && criterio!=NULL)
     {
-        for(i=0;i<sizeI;i++)                                                                            //Obtengo la posicion de la primer entidad
-        {
-            if(arrayA[i].isEmpty==1)                 //cambiar campo donde busco el criterio
-                continue;                                                                       //si esta vacio o no tiene el criterio > continue
+        for(i=0;i<sizeI;i++)              ///Obtengo la posicion de la primer entidad
+
+            if(arrayA[i].isEmpty==1)        ///cambiar campo donde busco el criterio
+                continue;                    ///si esta vacio o no tiene el criterio > continue
             if(strcmp(arrayA[i].varString,criterio)==0)
             {
-                fantasma_buscarID(arrayB,sizeJ,arrayA[i].idUnico,&j);                            //Obtengo la posicion de la 2da entidad buscando por el campo en comun
+                fantasma_buscarID(arrayB,sizeJ,arrayA[i].idUnico,&j); ///Obtengo la posicion de la 2da entidad buscando por el campo en comun
                 printf("\nID A: %d\nID B: %d",
                        arrayA[i].idUnico,arrayB[j].idUnico);
             }
@@ -45,8 +45,8 @@ int Informes_listarPorCriterio(Fantasma arrayA[], Fantasma arrayB[], int sizeI, 
 * \return int Return (-1) si Error [Invalid length or NULL pointer] - (0) Ok
 *
 */
-//Lista un campo que se repite, lo imprime una sola vez y calcula contador y acumulado
-int Informes_listarCriterioContadorAcumulado(Fantasma arrayA[], Fantasma arrayB[], int sizeI, int sizeJ)         //cambiar Fantasma
+///Lista un campo que se repite, lo imprime una sola vez y calcula contador y acumulado
+int Informes_listarCriterioContadorAcumulado(Fantasma arrayA[], Fantasma arrayB[], int sizeI, int sizeJ) ///cambiar Fantasma
 {
     int retorno=-1;
     int i;
@@ -60,17 +60,17 @@ int Informes_listarCriterioContadorAcumulado(Fantasma arrayA[], Fantasma arrayB[
     {
         for(i=0;i<sizeI;i++)
         {
-            fantasma_buscarString(arrayA,i,arrayA[i].varString,&auxPosicion);                  //cambiar nombreFuncion y campo      va a analizar hasta <i
+            fantasma_buscarString(arrayA,i,arrayA[i].varString,&auxPosicion); ///cambiar nombreFuncion y campo      va a analizar hasta <i
             if(arrayA[i].isEmpty==1 && auxPosicion!=-1)
-                continue;                                                                 //Si ese valor ya aparecio > continue
+                continue;        ///Si ese valor ya aparecio > continue
             else
             {
-                printf("\nCampo: %s",arrayA[i].varString);                                   //Imprimo el valor que voy a listar
-                for(k=i,contador=0,acumulado=0;k<sizeI;k++)                                                            //Recorro por segunda vez el mismo array
+                printf("\nCampo: %s",arrayA[i].varString);  ///Imprimo el valor que voy a listar
+                for(k=i,contador=0,acumulado=0;k<sizeI;k++)  ///Recorro por segunda vez el mismo array
                 {
-                    if(arrayA[k].isEmpty!=1 && strcmp(arrayA[k].varString,arrayA[i].varString)==0)     //Busco todas las veces que aparece ese cuit
+                    if(arrayA[k].isEmpty!=1 && strcmp(arrayA[k].varString,arrayA[i].varString)==0) ///Busco todas las veces que aparece ese cuit
                     {
-                        fantasma_buscarID(arrayB,sizeJ,arrayA[k].idUnico,&j);                 //cambiar Fantasma, busco por el campo en comun
+                        fantasma_buscarID(arrayB,sizeJ,arrayA[k].idUnico,&j);   ///cambiar Fantasma, busco por el campo en comun
 
                         contador++;
                         acumulado+=(arrayA[k].varInt*arrayB[j].varInt);
@@ -115,23 +115,23 @@ int Informes_maxContadorAcumulado(Fantasma arrayA[], Fantasma arrayB[], int size
     {
         for(i=0;i<sizeI;i++)
         {
-            fantasma_buscarString(arrayA,i,arrayA[i].varString,&auxPosicion);                  //cambiar nombreFuncion y campo
+            fantasma_buscarString(arrayA,i,arrayA[i].varString,&auxPosicion); ///cambiar nombreFuncion y campo
             if(arrayA[i].isEmpty==1 && auxPosicion!=-1)
-                continue;                                                                 //Si ese valor ya aparecio > continue
+                continue;             ///Si ese valor ya aparecio > continue
             else
             {
-                printf("\nCampo: %s",arrayA[i].varString);                                   //Imprimo el valor que voy a listar
-                for(k=i;k<sizeI;k++)                                                            //Recorro por segunda vez el mismo array
+                printf("\nCampo: %s",arrayA[i].varString); ///Imprimo el valor que voy a listar
+                for(k=i;k<sizeI;k++)                  ///Recorro por segunda vez el mismo array
                 {
-                    if(arrayA[k].isEmpty!=1 && strcmp(arrayA[k].varString,arrayA[i].varString)==0)     //Busco todas las veces que aparece ese cuit
+                    if(arrayA[k].isEmpty!=1 && strcmp(arrayA[k].varString,arrayA[i].varString)==0)   ///Busco todas las veces que aparece ese cuit
                     {
 
-                        fantasma_buscarID(arrayB,sizeJ,arrayA[k].idUnico,&j);                 //cambiar Fantasma, busco por el campo en comun
+                        fantasma_buscarID(arrayB,sizeJ,arrayA[k].idUnico,&j);       ///cambiar Fantasma, busco por el campo en comun
 
-                        contador++;                                                         //calculos acumulados y contador
+                        contador++;                               ///calculos acumulados y contador
                         acumulador+=(arrayA[k].varInt*arrayB[j].varInt);
 
-                        printf("\nID A: %d\nID B: %d",                                         //imprimo datos que haya que mostrar
+                        printf("\nID A: %d\nID B: %d",         ///imprimo datos que haya que mostrar
                                 arrayA[k].idUnico,arrayB[j].idUnico);
                     }
                 }
@@ -139,42 +139,42 @@ int Informes_maxContadorAcumulado(Fantasma arrayA[], Fantasma arrayB[], int size
                 if(acumulador>maxAcumulado)
                 {
                     maxAcumulado=acumulador;
-                    iMaxAcumulado[i-1]=-1;                       //Si mas de un cuit tiene la mayor facturacion
+                    iMaxAcumulado[i-1]=-1;    ///Si mas de un cuit tiene la mayor facturacion
                     iMaxAcumulado[i]=i;
                 }
                 else if(acumulador==maxAcumulado)
                     iMaxAcumulado[i]=i;
                 else
-                    iMaxAcumulado[i]=-2;                         //Para marcar los lugares vacios
+                    iMaxAcumulado[i]=-2;  ///Para marcar los lugares vacios
 
                 acumulador=0;
 
                 if(contador>maxContador)
                 {
                     maxContador=contador;
-                    iMaxContador[i-1]=-1;                       //Si mas de un cuit tiene la mayor facturacion
+                    iMaxContador[i-1]=-1; ///Si mas de un cuit tiene la mayor facturacion
                     iMaxContador[i]=i;
                 }
                 else if(contador==maxContador)
                     iMaxContador[i]=i;
                 else
-                    iMaxContador[i]=-2;                         //Para marcar los lugares vacios
+                    iMaxContador[i]=-2; ///Para marcar los lugares vacios
 
                 contador=0;
             }
         }
 
         printf("\nMayor acumulado: %d \nMayor contador: %d \nI: ",maxAcumulado,maxContador);
-        for(;iMaxAcumulado[i]!=-1;i--)                                                      //Uno o el otro, sino agregar otro contador que no sea el i
+        for(;iMaxAcumulado[i]!=-1;i--)        ///Uno o el otro, sino agregar otro contador que no sea el i
         {
-            if(iMaxAcumulado[i]!=-2)                         //Salteo los vacios
+            if(iMaxAcumulado[i]!=-2)           ///Salteo los vacios
             {
                 printf("\n          CUIT: %s",arrayA[iMaxAcumulado[i]].varString);
             }
         }
         for(;iMaxContador[i]!=-1;i--)
         {
-            if(iMaxContador[i]!=-2)                         //Salteo los vacios
+            if(iMaxContador[i]!=-2)    ///Salteo los vacios
             {
                 printf("\n          CUIT: %s",arrayA[iMaxContador[i]].varString);
             }
@@ -193,7 +193,7 @@ int Informes_maxContadorAcumulado(Fantasma arrayA[], Fantasma arrayB[], int size
 * \return int Return (-1) si Error [Invalid length or NULL pointer] - (0) Ok
 *
 */
-int Informes_listarAuxiliarOrdenar(Fantasma arrayA[], Fantasma arrayB[], int sizeI, int sizeJ)         //cambiar Fantasma
+int Informes_listarAuxiliarOrdenar(Fantasma arrayA[], Fantasma arrayB[], int sizeI, int sizeJ)  ///cambiar Fantasma
 {
     int retorno=-1;
     int i;
@@ -203,30 +203,29 @@ int Informes_listarAuxiliarOrdenar(Fantasma arrayA[], Fantasma arrayB[], int siz
     int contador=0;
     int acumulado=0;
 
-    Fantasma arrayAux[sizeI];                                                           //cambiar Fantasma y size si corresponde
-
+    Fantasma arrayAux[sizeI];      ///cambiar Fantasma y size si corresponde
     if(arrayA!=NULL && sizeI>=0 && arrayB!=NULL && sizeJ>=0)
     {
         for(i=0;i<sizeI;i++)
         {
-            fantasma_buscarString(arrayA,i,arrayA[i].varString,&auxPosicion);                  //cambiar nombreFuncion y campo      va a analizar hasta <i
+            fantasma_buscarString(arrayA,i,arrayA[i].varString,&auxPosicion);///cambiar nombreFuncion y campo      va a analizar hasta <i
             if(arrayA[i].isEmpty==1 && auxPosicion!=-1)
-                continue;                                                                 //Si ese valor ya aparecio > continue
+                continue;                  ///Si ese valor ya aparecio > continue
             else
             {
-                strcpy(arrayAux[i].varString,arrayA[i].varString);                              //cambio varstring
-                for(k=i;k<sizeI;k++)                                                            //Recorro por segunda vez el mismo array
+                strcpy(arrayAux[i].varString,arrayA[i].varString);   ///cambio varstring
+                for(k=i;k<sizeI;k++)                               ///Recorro por segunda vez el mismo array
                 {
-                    if(arrayA[k].isEmpty!=1 && strcmp(arrayA[k].varString,arrayA[i].varString)==0)     //Busco todas las veces que aparece ese cuit
+                    if(arrayA[k].isEmpty!=1 && strcmp(arrayA[k].varString,arrayA[i].varString)==0)  ///Busco todas las veces que aparece ese cuit
                     {
-                        fantasma_buscarID(arrayB,sizeJ,arrayA[k].idUnico,&j);                 //cambiar Fantasma, busco por el campo en comun
+                        fantasma_buscarID(arrayB,sizeJ,arrayA[k].idUnico,&j); ///cambiar Fantasma, busco por el campo en comun
 
                         contador++;
                         acumulado+=(arrayA[k].varInt*arrayB[j].varInt);
 
                     }
                 }
-                arrayAux[i].varInt=contador;                                    //completo el resto de los campos
+                arrayAux[i].varInt=contador;   ///completo el resto de los campos
                 arrayAux[i].varInt=acumulado;
                 arrayAux[i].isEmpty=0;
 
